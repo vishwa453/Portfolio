@@ -1,33 +1,13 @@
 "use client"
 
-const certificates = [
-   {
-    id: "Google-Data-Analytics",
-    title: "Google Data Analytics Professional Certificate 8/9",
-    issuer: "Coursera",
-    date: "Nov 2025",
-    credentialUrl: "https://coursera.org/share/1b174ce9671d05505a19c907ad6d4752"
-  },
-  {
-    id: "ml-az",
-    title: "Machine Learning A-Z: AI, Python & R",
-    issuer: "Udemy",
-    date: "Apr 2024",
-    credentialUrl: "https://www.udemy.com/certificate/UC-d887c517-24a4-4b85-8cc2-564f0c76f508/"
-  },
-  {
-    id: "powerbi",
-    title: "Microsoft Power BI Desktop for Business Intelligence",
-    issuer: "Udemy",
-    date: "Sept 2023",
-    credentialUrl: "https://www.udemy.com/certificate/UC-cdda0577-14fd-4edd-a691-63beccf0b085/"
-  }
-]
+import { getCertificates } from "@/lib/data-loader"
+
+const certificates = getCertificates()
 
 export default function CertificatesSection({ sectionRef }: { sectionRef: (el: HTMLElement | null) => void }) {
   return (
     <section
-      id="thoughts"
+      id="certificates"
       ref={sectionRef}
       className="min-h-screen py-20 sm:py-32 opacity-0"
     >
@@ -43,6 +23,7 @@ export default function CertificatesSection({ sectionRef }: { sectionRef: (el: H
               <div className="space-y-4">
                 <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
                   <span>{cert.date}</span>
+                  <span className="text-muted-foreground/70">{cert.issuer}</span>
                 </div>
 
                 <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">

@@ -18,42 +18,13 @@ export default function ContactSection({ sectionRef }: { sectionRef: (el: HTMLEl
 
             <div className="space-y-6">
               <div className="flex justify-center items-center">
-                <label htmlFor="profile-photo-upload" className="sr-only">Upload profile photo</label>
-                <input
-                  id="profile-photo-upload"
-                  type="file"
-                  accept="image/png,image/jpeg,image/webp"
-                  style={{ display: 'none' }}
-                  onChange={e => {
-                    const file = e.target.files?.[0];
-                    if (file) {
-                      const reader = new FileReader();
-                      reader.onload = (ev) => {
-                        const img = document.getElementById('profile-photo-img');
-                        if (img && ev.target?.result) {
-                          img.setAttribute('src', ev.target.result as string);
-                        }
-                      };
-                      reader.readAsDataURL(file);
-                    }
-                  }}
-                />
                 <img
-                  id="profile-photo-img"
                   src="/me.jpg"
-                  alt="I'm Vishwa R"
+                  alt="Vishwa R - Data Science Enthusiast"
                   width={160}
                   height={160}
-                  className="rounded-full border border-border shadow-[0_0_0_2px_var(--accent)] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background transition-all duration-200"
-                  style={{ objectFit: 'cover', objectPosition: 'center', boxShadow: '0 0 8px 0 var(--accent), 0 0 0 1px var(--border)' }}
-                  tabIndex={0}
+                  className="rounded-full border-2 border-border shadow-lg transition-all duration-200"
                   loading="lazy"
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      document.getElementById('profile-photo-upload')?.click();
-                    }
-                  }}
-                  onClick={() => document.getElementById('profile-photo-upload')?.click()}
                 />
               </div>
 

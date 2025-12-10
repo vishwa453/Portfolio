@@ -31,9 +31,9 @@ const navItems = [
   },
   {
     label: "Certificates",
-    href: "#thoughts",
+    href: "#certificates",
     icon: <Award className="h-5 w-5" />,
-    sectionId: "thoughts",
+    sectionId: "certificates",
   },
   {
     label: "Contact",
@@ -148,18 +148,24 @@ export function Navbar() {
           ))}
         </ul>
         {mounted && (
-          <button
-            type="button"
-            aria-label="Toggle dark mode"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="ml-4 flex items-center justify-center rounded-md border border-border bg-transparent px-2 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-ring/40"
-          >
-            {theme === "dark" ? (
-              <Sun className="h-5 w-5 text-foreground" />
-            ) : (
-              <Moon className="h-5 w-5 text-foreground" />
-            )}
-          </button>
+          <>
+            <button
+              type="button"
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              aria-live="polite"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="ml-4 flex items-center justify-center rounded-md border border-border bg-transparent px-2 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-ring/40"
+            >
+              {theme === "dark" ? (
+                <Sun className="h-5 w-5 text-foreground" aria-hidden="true" />
+              ) : (
+                <Moon className="h-5 w-5 text-foreground" aria-hidden="true" />
+              )}
+            </button>
+            <div className="sr-only" aria-live="polite" aria-atomic="true">
+              {theme === "dark" ? "Dark mode active" : "Light mode active"}
+            </div>
+          </>
         )}
       </div>
     </nav>

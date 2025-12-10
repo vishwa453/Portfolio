@@ -31,6 +31,7 @@ export interface Skill {
   name: string
   category: "Programming" | "Data Science" | "Web Dev" | "Tools"
   icon: string
+  level: number
 }
 
 export interface Experience {

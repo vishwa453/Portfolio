@@ -5,24 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { FileText, Linkedin, Github } from "lucide-react"
 import EducationDialog from "@/components/education-dialog"
+import { getHeroData } from "@/lib/data-loader"
 
-const heroData = {
-  name: "Vishwa R",
-  location: "India",
-  resumeUrl: "/Vishwa_R.pdf",
-  social: {
-    linkedin: "https://www.linkedin.com/in/r-vishwa/",
-    github: "https://github.com/01Vishwa",
-    kaggle: "https://www.kaggle.com/rv1922",
-    whatsapp: "https://wa.me/917708690518"
-  },
-  currentRole: {
-    title: "Data Science Intern",
-    company: "Prediscan Medtech",
-    period: "2024 — 2025"
-  },
-  focusSkills: ["Python", "PyTorch", "Computer Vision", "Machine Learning", "Deep Learning", "Data Analysis"]
-}
+const heroData = getHeroData()
 
 export default function HeroSection({ sectionRef }: { sectionRef: (el: HTMLElement | null) => void }) {
   return (

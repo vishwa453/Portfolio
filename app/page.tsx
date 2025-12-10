@@ -68,7 +68,7 @@ export default function Home() {
       >
         <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
           <div className="flex flex-col gap-4">
-            {["intro", "work", "projects", "skills", "thoughts", "connect"].map((section) => (
+            {["intro", "work", "projects", "skills", "certificates", "connect"].map((section) => (
               <button
                 key={section}
                 onClick={() => document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })}

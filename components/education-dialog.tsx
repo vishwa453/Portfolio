@@ -8,18 +8,9 @@ import {
 	DialogHeader,
 	DialogClose,
 } from "./ui/dialog"
+import { getEducation } from "@/lib/data-loader"
 
-// Example education data; replace with your own or fetch dynamically
-const education = [
-	{
-		college: "Coimbatore Institute of Technology - CIT",
-		location: "Coimbatore, India",
-		years: "2021 – Present",
-		Course: "MSc Decision and Computing Sciences",
-		gpa: "CGPA: 7.9/10",
-	},
-	// Add more entries as needed
-]
+const education = getEducation()
 export default function EducationDialog() {
 	const triggerRef = useRef<HTMLButtonElement>(null)
 	return (
@@ -35,26 +26,28 @@ export default function EducationDialog() {
 			</DialogTrigger>
 			<DialogContent
 				className="max-w-[640px] w-[90vw] sm:w-full max-h-[80vh] p-6 sm:p-8 rounded-xl border border-border bg-card shadow-lg text-card-foreground animate-in fade-in-0 zoom-in-95 flex flex-col"
-				style={{ fontFamily: 'inherit' }}
 			>
 				<DialogHeader>
-					<DialogTitle className="text-xl sm:text-2xl font-semibold tracking-tight mb-2" style={{ fontFamily: 'inherit' }}>
+					<DialogTitle className="text-xl sm:text-2xl font-semibold tracking-tight mb-2">
 						Education
 					</DialogTitle>
 				</DialogHeader>
 				{/* Scrollable body */}
-				<div className="overflow-y-auto flex-1 pr-1" style={{paddingRight: '2px'}}>
+				<div className="overflow-y-auto flex-1 pr-0.5">
 					<div className="flex flex-col gap-3">
 						{education.map((edu, i) => (
 							<div key={i} className="flex flex-col gap-1 pb-2">
-								<span className="font-bold text-base sm:text-lg text-foreground" style={{ fontFamily: 'inherit', marginTop: 0 }}>{edu.college}</span>
+								<span className="font-bold text-base sm:text-lg text-foreground">{edu.institution}</span>
 								<div className="flex flex-wrap gap-2 text-sm">
 									<span className="text-muted-foreground">{edu.location}</span>
-									<span className="text-muted-foreground">{edu.years}</span>
+									<span className="text-muted-foreground">{edu.period}</span>
 								</div>
 								{/* Display course information */}
-								<span className="text-sm text-foreground" style={{ fontFamily: 'inherit' }}>{edu.Course}</span>
-								<span className="font-semibold text-primary text-sm mt-1">{edu.gpa}</span>
+								<span className="text-sm text-foreground">{edu.degree}</span>
+								<span className="font-semibold text-primary text-sm mt-1">{edu.cgpa}</span>
+								{edu.description && (
+									<p className="text-xs text-muted-foreground mt-1">{edu.description}</p>
+								)}
 								{i < education.length - 1 && (
 									<div className="h-px w-full bg-border/60 my-2" />
 								)}

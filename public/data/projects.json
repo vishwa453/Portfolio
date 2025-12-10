@@ -3,9 +3,18 @@
     "id": "skillsync",
     "title": "SkillSync AI: Precision Hiring Powered by AI",
     "description": "RAG-powered framework to revolutionize résumé screening by harnessing multi-source candidate data, driving accuracy, fairness, and explainability in talent evaluation.",
-    "technologies": ["Python", "GCP", "Lanchain", "Chat Bot", "Large Language Models"],
+    "technologies": ["Python", "GCP", "Langchain", "Chat Bot", "Large Language Models"],
     "status": "active",
     "imageUrl": "/project-logo.png"
+  },
+  {
+    "id": "PR-reviewer",
+    "title": "Automated GitHub Pull Request Review Agent",
+    "description": "Automates diff analysis, code-quality evaluation, and security checks through sequential agent processing.",
+    "technologies": ["Python", "Crew AI", "Next.js", "FastAPI", "GCP"],
+    "status": "completed",
+    "githubUrl": "https://github.com/01Vishwa/Automated-GitHub-Pull-Request-Review-Agent",
+    "imageUrl": ""
   },
   {
     "id": "hr-attrition",

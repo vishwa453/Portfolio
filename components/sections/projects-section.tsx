@@ -4,69 +4,9 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
+import { getProjects } from "@/lib/data-loader"
 
-const projects = [
-  {
-    id: "skillsync",
-    title: "SkillSync AI: Precision Hiring Powered by AI",
-    description: "RAG-powered framework to revolutionize résumé screening by harnessing multi-source candidate data, driving accuracy, fairness, and explainability in talent evaluation.",
-    technologies: ["Python", "GCP", "Langchain", "Chat Bot", "Large Language Models"],
-    status: "active" as const,
-    githubUrl: undefined,
-    liveUrl: undefined,
-    imageUrl: "/project-logo.png"
-  },
-  {
-    id: "PR-reviewer",
-    title: "Automated GitHub Pull Request Review Agent",
-    description: "Automates diff analysis, code-quality evaluation, and security checks through sequential agent processing.",
-    technologies: ["Python", "Crew AI", "Next.js", "FastAPI", "GCP"],
-    status: "completed" as const,
-    githubUrl: "https://github.com/01Vishwa/Automated-GitHub-Pull-Request-Review-Agent",
-    liveUrl: undefined,
-    imageUrl: ""
-  },
-  {
-    id: "hr-attrition",
-    title: "HR Attrition Prediction System",
-    description: "Predictive models using Logistic Regression and Random Forest achieving 87.75% accuracy on IBM's HR dataset.",
-    technologies: ["Python", "Flask", "Plotly", "Dash"],
-    status: "completed" as const,
-    githubUrl: "https://github.com/Sudeep1911/Hr-attrition-analysis",
-    liveUrl: undefined,
-    imageUrl: ""
-  },
-  {
-    id: "rail-dashboard",
-    title: "National Rail Performance Dashboard",
-    description: "Interactive Power BI dashboard analyzing 31,653 railway records with 81% on-time performance insights.",
-    technologies: ["Python", "Power BI", "Excel", "DAX"],
-    status: "completed" as const,
-    githubUrl: "https://github.com/01Vishwa/Maven_Rail_Challenge",
-    liveUrl: undefined,
-    imageUrl: ""
-  },
-  {
-    id: "zendo",
-    title: "ZenDO - Task Management App",
-    description: "A task management app that uses AI to help users organize and prioritize their tasks effectively.",
-    technologies: ["React", "FastAPI", "MongoDB", "TailwindCSS"],
-    status: "completed" as const,
-    githubUrl: "https://github.com/01Vishwa/ZenDo-Task-Management-Application",
-    liveUrl: "https://zen-do-rosy.vercel.app/",
-    imageUrl: ""
-  },
-  {
-    id: "power-exchange",
-    title: "Power Exchange simulation",
-    description: "A task management app that uses AI to help users organize and prioritize their tasks effectively.",
-    technologies: ["Python", "Django", "MongoDB", "Plotly"],
-    status: "completed" as const,
-    githubUrl: "https://github.com/01Vishwa/energy_trading_game",
-    liveUrl: undefined,
-    imageUrl: ""
-  }
-]
+const projects = getProjects()
 
 const activeProject = projects.find(p => p.status === "active")
 const completedProjects = projects.filter(p => p.status === "completed")
@@ -96,18 +36,18 @@ export default function ProjectsSection({ sectionRef }: { sectionRef: (el: HTMLE
                     alt="Active project logo"
                     className="h-12 w-12 sm:h-16 sm:w-16 rounded-md border border-border"
                   />
-                  <div className="flex-1 space-y-3">
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-medium">{activeProject.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{activeProject.description}</p>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {activeProject.technologies.map((tech: string) => (
-                        <Badge key={tech} variant="secondary" className="px-2 py-1 text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
+                    <div className="flex-1 space-y-3">
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-medium">{activeProject.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed">{activeProject.description}</p>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {activeProject.technologies.map((tech) => (
+                          <Badge key={tech} variant="secondary" className="px-2 py-1 text-xs">
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
                   </div>
                 </div>
               </CardContent>
@@ -128,7 +68,7 @@ export default function ProjectsSection({ sectionRef }: { sectionRef: (el: HTMLE
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech: string) => (
+                  {project.technologies.map((tech) => (
                     <Badge key={tech} variant="secondary" className="px-2 py-1 text-xs">
                       {tech}
                     </Badge>

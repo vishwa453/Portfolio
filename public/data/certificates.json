@@ -1,5 +1,13 @@
 [
   {
+    "id": "Google-Data-Analytics",
+    "title": "Google Data Analytics Professional Certificate",
+    "issuer": "Coursera",
+    "date": "Nov 2025",
+    "credentialUrl": "https://coursera.org/share/5327c7fe38286382215931be424a38a7",
+    "description": "Professional certificate covering data analysis, visualization, and statistical methods using industry-standard tools."
+  },
+  {
     "id": "ml-az",
     "title": "Machine Learning A-Z: AI, Python & R",
     "issuer": "Udemy",

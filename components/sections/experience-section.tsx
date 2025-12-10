@@ -1,19 +1,8 @@
 "use client"
 
-const experience = [
-  {
-    title: "Data Science Intern",
-    company: "Prediscan Medtech",
-    location: "Chennai, India",
-    period: "2024 - 2025",
-    responsibilities: [
-      "Researched and worked computer vision models for predicting health biomarkers from retinal imaging datasets.",
-      "Built AI-powered solutions for automated biomarker extraction to support cardiovascular risk assessment.",
-      "Designed and implemented preprocessing pipelines with advanced augmentation techniques for large-scale medical imaging data."
-    ],
-    skills: ["Python", "PyTorch", "Computer Vision", "Deep Learning"]
-  }
-]
+import { getExperience } from "@/lib/data-loader"
+
+const experience = getExperience()
 
 export default function ExperienceSection({ sectionRef }: { sectionRef: (el: HTMLElement | null) => void }) {
   return (
@@ -46,7 +35,7 @@ export default function ExperienceSection({ sectionRef }: { sectionRef: (el: HTM
                       </div>
                       <div className="space-y-2 text-muted-foreground leading-relaxed max-w-lg mt-3">
                         <ul className="list-disc list-inside space-y-1">
-                          {exp.responsibilities.map((resp: string, idx: number) => (
+                          {exp.responsibilities.map((resp, idx) => (
                             <li key={idx}>{resp}</li>
                           ))}
                         </ul>
@@ -55,7 +44,7 @@ export default function ExperienceSection({ sectionRef }: { sectionRef: (el: HTM
 
                     <div className="flex flex-col gap-2 lg:items-end">
                       <div className="flex gap-2 flex-wrap">
-                        {exp.skills.slice(0, 2).map((skill: string, idx: number) => (
+                        {exp.skills.slice(0, 2).map((skill, idx) => (
                           <span key={idx} className="px-2 py-1 text-xs bg-background text-muted-foreground rounded border border-border transition-colors duration-500">
                             {skill}
                           </span>
@@ -63,7 +52,7 @@ export default function ExperienceSection({ sectionRef }: { sectionRef: (el: HTM
                       </div>
                       {exp.skills.length > 2 && (
                         <div className="flex gap-2 flex-wrap">
-                          {exp.skills.slice(2).map((skill: string, idx: number) => (
+                          {exp.skills.slice(2).map((skill, idx) => (
                             <span key={idx} className="px-2 py-1 text-xs bg-background text-muted-foreground rounded border border-border transition-colors duration-500">
                               {skill}
                             </span>
